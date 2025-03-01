@@ -1,0 +1,12 @@
+node_modules
+dist
+*.yaml
+
+lib
+lib64
+pyvenv.cfg
+bin
+history
+backup
+__pycache__
+include

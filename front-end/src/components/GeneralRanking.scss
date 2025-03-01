@@ -1,0 +1,237 @@
+$gold: #f9cd38;
+$blue: #2a70b5;
+$background-color: #ffffff;
+$cell-text-color: #231f1e;
+$cell-header-color: white;
+$title-color: #231f1e;
+
+$rows-height: 50px;
+
+@font-face {
+  font-family: 'TT_bluescreen';
+  src: url('../assets/fonts/TT_Bluescreens/TT_Bluescreens_Trial_Black.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'impact';
+  src: url('../assets/fonts/impact/impact.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'morganite';
+  src: url('../assets/fonts/Morganite/Morganite-BlackItalic.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin title-font {
+  font-family: 'morganite'; 
+  font-size: 72px; 
+  color: $title-color;
+}
+
+@mixin header-cell-font {
+  font-family: 'impact'; 
+  font-size: 32px;
+  // font-weight: bold;
+  color: $cell-header-color;
+}
+
+@mixin cell-font {
+  font-family: 'impact'; 
+  font-size: 34px; 
+  // font-weight: bold;
+}
+
+@mixin flex-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@mixin mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin border-gold {
+  border-color: $gold;
+  border-width: 2px;
+}
+
+@mixin border-blue {
+  border-color: $blue;
+  border-width: 2px;
+}
+
+@mixin center-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin start-cell {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.title {
+  @include flex-between;
+  @include mx-auto;
+  @include title-font;
+  background-color: $background-color;
+  width: 100%;
+  
+  h1 {
+    color: $cell-text-color;
+    margin-bottom: 0px;
+  }
+
+  img {
+    margin-bottom: 0px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 10% 50% 7.5% 32.5%;
+  grid-auto-rows: $rows-height;
+  align-items: stretch;
+  justify-items: stretch;
+
+  .header-cell {
+    background-color: $gold;
+    @include header-cell-font;
+  }
+
+  .filled-cell {
+    background-color: $gold;
+    color: $cell-header-color;
+    @include cell-font;
+  }
+
+  .empty-cell {
+    background-color: $background-color;
+    color: $cell-text-color;
+    @include cell-font;
+  }
+
+  .center-cell {
+    @include center-cell;
+  }
+
+  .start-cell {
+    @include start-cell;
+  }
+
+  .presences-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+  }
+
+  .border-bottom {
+    border-bottom-style: solid;
+    @include border-gold;
+  }
+
+  .border-right {
+    border-right-style: solid;
+    @include border-gold;
+  }
+
+  .border-left {
+    border-left-style: solid;
+    @include border-gold;
+  }
+}
+
+.specific {
+
+  .title {
+    @include flex-between;
+    @include mx-auto;
+    @include title-font;
+    font-size: 76px;
+    background-color: $background-color;
+    width: 100%;
+    
+    h1 {
+      color: $cell-text-color;
+      margin-bottom: 0px;
+    }
+
+    p {
+      text-align: left;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      font-family: 'impact';
+      font-size: 42px;
+      // -webkit-text-stroke: 2px $title-color;
+      // -webkit-text-fill-color: $background-color;
+      color: $background-color;
+      text-shadow: 
+        2px -2px $title_color, 
+        -2px 2px $title_color, 
+        -2px 2px $title_color, 
+        2px -2px $title_color,
+        2px 2px $title_color, 
+        -2px -2px $title_color, 
+        2px -2px $title_color, 
+        -2px 2px $title_color;
+      
+      .title-date {
+        font-size: 32px;
+        padding-left: 24px;
+        color: $title-color;
+        text-shadow: none;
+      }
+    }
+  
+    img {
+      margin-top: 20px;
+      margin-bottom: 0px;
+    }
+  }
+
+  .grid {
+    grid-template-columns: 10% 50% 7.5% 10% 10% 12.5%;
+
+    .header-cell {
+      background-color: $blue;
+      @include header-cell-font;
+    }
+  
+    .filled-cell {
+      background-color: $blue;
+      color: $cell-header-color;
+      @include cell-font;
+    }
+  
+    .border-bottom {
+      border-bottom-style: solid;
+      @include border-blue;
+    }
+  
+    .border-right {
+      border-right-style: solid;
+      @include border-blue;
+    }
+  
+    .border-left {
+      border-left-style: solid;
+      @include border-blue;
+    }
+
+    .text-gold {
+      color: $gold;
+    }
+  }
+}
