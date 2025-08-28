@@ -9,7 +9,7 @@ if __name__ == "__main__":
     parser.add_argument("-o", "--old", type=str, help="Old Standings file")
     args = parser.parse_args()
 
-    script_path = os.path.abspath("./script/Chess_API/ranking.py")
+    script_path = os.path.abspath("./script/Chess_API/main.py")
 
     if args.input and args.number != None:
         subprocess.run(["cp", args.input, "./script/Chess_API"])
@@ -18,7 +18,7 @@ if __name__ == "__main__":
         subprocess.run(
           [
             "./script/Chess_API/bin/python3", 
-            "./script/Chess_API/ranking.py", 
+            "./script/Chess_API/main.py", 
             "--generate-standings", f"{args.number}",
             "-i", args.input,
             "-o", "ranking.yaml",
@@ -27,7 +27,7 @@ if __name__ == "__main__":
         subprocess.run(
           [
             "./script/Chess_API/bin/python3", 
-            "./script/Chess_API/ranking.py",
+            "./script/Chess_API/main.py",
             "-i", args.input,
             "-o", "ranking.yaml",
             "-c",

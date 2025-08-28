@@ -42,7 +42,7 @@ def get_standings(file: str, id:int, players=None, ncols=9) -> dict:
 
     for i in range(len(values)):
         if i % ncols == name_index:
-            current_name = values[i]
+            current_name = values[i].title()
             if players:
                 player_found = False
                 for j in range(len(players)):

@@ -31,6 +31,6 @@ def get_ranking(file: str, ncols=9, aim_field="NAME") -> list:
 
     for i in range(len(values)):
         if i % ncols == aim_index:
-            ranking.append(values[i])
+            ranking.append(values[i].title())
 
     return ranking
